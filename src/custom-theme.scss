@@ -1,0 +1,33 @@
+@use '@angular/material' as mat;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import 'pallet';
+
+$uniforum-theme-primary: mat.m2-define-palette($c-primary);
+$uniforum-theme-accent: mat.m2-define-palette($c-accent);
+$uniforum-theme-warn: mat.m2-define-palette($c-warn);
+
+$uniforum-typography: mat.m2-define-typography-config(
+  $font-family: 'Montserrat, sans-serif',
+  $headline-1: mat.m2-define-typography-level(97px, 112px, 600),
+  $headline-2: mat.m2-define-typography-level(56px, 68px, 700),
+  $headline-3: mat.m2-define-typography-level(34px, 72px, 700),
+  $headline-4: mat.m2-define-typography-level(28px, 36px, 700),
+  $body-1: mat.m2-define-typography-level(14px, 24px, 400),
+  $button: mat.m2-define-typography-level(14px, 16px, 700),
+);
+
+
+$uniforum-theme: mat.m2-define-light-theme(
+  (
+    color: (
+      primary: $uniforum-theme-primary,
+      accent: $uniforum-theme-accent,
+      warn: $uniforum-theme-warn,
+    ),
+    typography: $uniforum-typography,
+  )
+);
+
+
+@include mat.all-component-themes($uniforum-theme);
+@include mat.all-component-typographies($uniforum-theme);
