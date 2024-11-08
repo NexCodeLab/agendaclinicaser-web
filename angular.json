@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "uniforum-web": {
+    "frontend": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/uniforum-web",
+            "outputPath": "dist/frontend",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -34,7 +34,12 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "server": "src/main.server.ts",
+            "prerender": true,
+            "ssr": {
+              "entry": "server.ts"
+            }
           },
           "configurations": {
             "production": {
@@ -64,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "uniforum-web:build:production"
+              "buildTarget": "frontend:build:production"
             },
             "development": {
-              "buildTarget": "uniforum-web:build:development"
+              "buildTarget": "frontend:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -98,5 +103,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "e82c04e3-a3b3-42e4-9b43-e35f8b8bb34b"
   }
 }
